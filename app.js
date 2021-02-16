@@ -43,11 +43,11 @@ app.use((req, res, next) => {
 
 */
 app.get('/', (req, res)=>{
-    res.send(`Welcome to Gladoire. <br /><a href="http://localhost:3000/protected2>Protected Link<a>`)
+    res.send(`Welcome to Gladoire. <a href="http://localhost:3000/protected">Normal Auth Protected Link<a> <br /><a href="http://localhost:3000/protected2">Super Auth Protected Link<a>`)
 })
 
 
-  app.get('/auth/google',
+app.get('/auth/google',
   passport.authenticate('google', { scope:
       [ 'email', 'profile' ] }
 ));
@@ -63,7 +63,11 @@ app.get('/protected', isLoggedIn, (req, res)=>{
 })
 
 app.get('/protected2', isLoggedIn, (req, res)=>{
-    res.send(`This route is also protected...<br /><a href="http://localhost:3000/auth/logout">LOGOUT</a>`)
+    if (req.user.user_level >= 3){
+        res.send(`This route is also protected, and if you can see this, your access level is >= 3<br /><a href="http://localhost:3000/auth/logout">LOGOUT</a>`)
+    }else {
+        res.send(`you are not fully authorized for this page...<a href="http://localhost:3000/auth/logout">LOGOUT</a>`)
+    }
 })
 app.get("/auth/logout", (req, res) => {
     req.logout();
