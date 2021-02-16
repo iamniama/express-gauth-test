@@ -43,7 +43,13 @@ app.use((req, res, next) => {
 
 */
 app.get('/', (req, res)=>{
-    res.send(`Welcome to Gladoire. <a href="http://localhost:3000/protected">Normal Auth Protected Link<a> <br /><a href="http://localhost:3000/protected2">Super Auth Protected Link<a>`)
+    //res.send(`Welcome to Gladoire. <a href="http://localhost:3000/protected">Normal Auth Protected Link<a> <br /><a href="http://localhost:3000/protected2">Super Auth Protected Link<a>`)
+    res.render('index')
+})
+
+
+app.post('/', (req,res)=>{
+    res.send(req.body)
 })
 
 
