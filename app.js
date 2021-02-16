@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 */
 app.get('/', (req, res)=>{
     //res.send(`Welcome to Gladoire. <a href="http://localhost:3000/protected">Normal Auth Protected Link<a> <br /><a href="http://localhost:3000/protected2">Super Auth Protected Link<a>`)
-    res.render('index')
+    res.render('index', {data:{user: req.user}})
 })
 
 
@@ -77,7 +77,8 @@ app.get('/protected2', isLoggedIn, (req, res)=>{
 })
 app.get("/auth/logout", (req, res) => {
     req.logout();
-    res.send(req.user);
+    //res.send(req.user);
+    res.redirect('/')
   });
 
 app.get('/auth/google/success', (req, res)=>{
@@ -85,7 +86,7 @@ app.get('/auth/google/success', (req, res)=>{
 })
 
 app.get('auth/google/failure', (req, res)=>{
-    res.send(`FAIL!!!`)
+    res.send(`Something went wrong with authentication....Go back to <a href="http://gladoire.com/"> HOME </a>`)
 })
 
 const PORT = process.env.PORT || 8000;

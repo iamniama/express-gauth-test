@@ -3,11 +3,28 @@
     <label for="field1">Field 1: </label>
     <input type="text" name="field1" id="field1" />
     <br />
-    <label for="editor">Field 2</label>
-    <div id="editor" name="editor">Sample <b>text</b></div>
+    <label for="editor">Field 2:</label>
+    <div id="rtwrapper" name="rtwrapper" style="background-color: aquamarine">
+    <div id="editor" name="editor" style="background-color:aquamarine">Sample <b>text</b></div>
+</div>
     <input type="submit" value="GOOOOO">
 
 </form>
+
+<div>
+    Everyone can see this bit
+</div>
+
+<% if (typeof data.user != 'undefined') { %>
+    <div> Authenticated Users ONLY</div>
+
+<%}%>
+
+<% if (typeof data.user != 'undefined' && data.user.user_level > 3) { %>
+
+    <div>SECRET SQUIRREL STUFF</div>
+
+<%}%>
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
     let quill = new Quill('#editor', {theme: 'snow'})
