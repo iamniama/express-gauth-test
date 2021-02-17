@@ -1,13 +1,13 @@
-<div style="width:40%;">
+<div style="width:60%; border: 1px solid black;">
 <form action="/" method="POST" id="test">
     <label for="field1">Field 1: </label>
-    <input type="text" name="field1" id="field1" />
+    <input type="text" name="field1" id="field1" class="big-input" size="80" minlength="4" maxlength="4" pattern="[A-Za-z]{4}" title="4 alpha character code" required/>
     <br />
-    <label for="editor">Field 2:</label>
-    <div id="rtwrapper" name="rtwrapper" style="background-color: aquamarine">
+    <label for="rtwrapper">Field 2:</label>
+    <div id="rtwrapper" name="rtwrapper" style="background-color: aquamarine; width:80%;">
     <div id="editor" name="editor">Sample <b>text</b></div>
 </div>
-    <input type="submit" value="GOOOOO">
+    <input type="submit" class="btn btn-primary local-btn" value="GOOOOO">
 
 </form>
 
