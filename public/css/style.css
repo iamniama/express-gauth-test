@@ -16,6 +16,10 @@ big-input {
     position: relative;
     width: 90%;
 }
+.demo {
+    border: 1px solid black;
+}
+
 nav{
     background-image: url(https://res.cloudinary.com/sidrat/image/upload/v1612567585/samples/landscapes/landscape-panorama.jpg);
     background-color: palegreen;

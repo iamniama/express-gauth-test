@@ -10,19 +10,20 @@
     <input type="submit" class="btn btn-primary local-btn" value="GOOOOO">
 
 </form>
-
-<div style="font-weight: 600; color: darkgreen" id="EVERYONE">
+<br />
+<br />
+<div style="font-weight: 600; color: darkgreen" id="EVERYONE" class="demo">
     Everyone can see this bit
 </div>
-
+<br />
 <% if (typeof data.user != 'undefined') { %>
-    <div style="color: darkblue" id="AUTHONLY"> <strong>Authenticated Users ONLY</strong></div>
+    <div style="color: darkblue" id="AUTHONLY" class="demo"> <strong>Authenticated Users ONLY</strong></div>
 
 <%}%>
-
+<br />
 <% if (typeof data.user != 'undefined' && data.user.user_level > 3) { %>
 
-    <div style="color: red;font-weight: bolder;" id="LEVEL3ONLY"><h3>SECRET SQUIRREL STUFF</h3></div>
+    <div style="color: red;font-weight: bolder;" id="LEVEL3ONLY" class="demo"><h3>SECRET SQUIRREL STUFF</h3></div>
 
 <%}%>
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
