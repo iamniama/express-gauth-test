@@ -12,8 +12,14 @@ nav{
     background-color: palegreen;
 }
 
-
-
+.flash-alert{
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+#editor {
+    background-color: antiquewhite;
+}
 .form-wrapper{
     width: 40%;
     margin-left: 2%;

@@ -33,7 +33,7 @@ app.use(session({
   app.use(flash());
   
 // 5 - Routes (controllers)
-/*
+
 app.use((req, res, next) => {
     // before every route, attach the flash messages and current user to res.locals
     res.locals.alerts = req.flash();
@@ -41,7 +41,7 @@ app.use((req, res, next) => {
     next();
   });
 
-*/
+
 app.get('/', (req, res)=>{
     //res.send(`Welcome to Gladoire. <a href="http://localhost:3000/protected">Normal Auth Protected Link<a> <br /><a href="http://localhost:3000/protected2">Super Auth Protected Link<a>`)
     res.render('index', {data:{user: req.user}})
@@ -53,16 +53,6 @@ app.post('/', (req,res)=>{
 })
 
 
-app.get('/auth/google',
-  passport.authenticate('google', { scope:
-      [ 'email', 'profile' ] }
-));
-
-app.get( '/auth/google/callback',
-    passport.authenticate( 'google', {
-        failureRedirect: 'failure'}), (req, res)=>{
-            res.redirect('/')
-        })
 
 app.get('/protected', isLoggedIn, (req, res)=>{
     res.send("If you can see this, authentication is working...")
@@ -75,19 +65,8 @@ app.get('/protected2', isLoggedIn, (req, res)=>{
         res.send(`you are not fully authorized for this page...<a href="http://localhost:3000/auth/logout">LOGOUT</a>`)
     }
 })
-app.get("/auth/logout", (req, res) => {
-    req.logout();
-    //res.send(req.user);
-    res.redirect('/')
-  });
 
-app.get('/auth/google/success', (req, res)=>{
-    res.send(`Success!!!`)
-})
-
-app.get('auth/google/failure', (req, res)=>{
-    res.send(`Something went wrong with authentication....Go back to <a href="http://gladoire.com/"> HOME </a>`)
-})
+app.use('/auth', require('./routes/auth'))
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
