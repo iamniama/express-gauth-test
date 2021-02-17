@@ -3,6 +3,15 @@ body {
     
 }
 
+#rtwrapper {
+    width: 80%;
+    background-color:beige;
+}
+
+#editor {
+    background-color: antiquewhite;
+}
+
 big-input {
     position: relative;
     width: 90%;
@@ -17,9 +26,7 @@ nav{
     top: 0;
     right: 0;
 }
-#editor {
-    background-color: antiquewhite;
-}
+
 .form-wrapper{
     width: 40%;
     margin-left: 2%;
